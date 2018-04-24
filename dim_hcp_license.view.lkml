@@ -51,6 +51,11 @@ view: dim_hcp_license {
     sql: ${TABLE}.mstr_hcp_stlic_seqid_ref ;;
   }
 
+  dimension: hcp_license_month_to_expire {
+    type: number
+    sql: datediff(month, getDate(), hcp_license_expiration_date) ;;
+  }
+
   measure: count {
     type: count_distinct
     drill_fields: [hcp_license_code,hcp_license_expiration_month,hcp_license_expiration_date,hcp_license_status,hcp_license_state_code]
