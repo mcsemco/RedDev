@@ -207,7 +207,7 @@ explore: fct_dtp_request_line {
     sql_on: ${fct_dtp_request_line.representative_id} = ${dim_representative.representative_id} ;;
   }
 }
-
+#########  HCP Dimension  ############
 explore: dim_hcp {
   label: "HCP"
   view_name: dim_hcp
