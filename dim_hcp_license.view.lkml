@@ -52,7 +52,14 @@ view: dim_hcp_license {
   }
 
   dimension: hcp_license_month_to_expire {
+    label: "Months to License Expiration"
     type: number
+    sql: datediff(month, getDate(), hcp_license_expiration_date) ;;
+  }
+
+  dimension: hcp_license_month_to_exp_str {
+    label: "Months to License Expiration Str"
+    type: string
     sql: datediff(month, getDate(), hcp_license_expiration_date) ;;
   }
 
