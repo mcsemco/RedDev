@@ -228,6 +228,7 @@ explore: dim_hcp {
     view_label: "HCP License"
     relationship: many_to_one
     sql_on: ${dim_hcp.hcp_id} = ${dim_hcp_license.hcp_license_id} ;;
+    type: inner
   }
 
 }
