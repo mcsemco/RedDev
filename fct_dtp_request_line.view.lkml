@@ -142,8 +142,9 @@ view: fct_dtp_request_line {
   }
 
   measure: count {
-    type: count
+    type: count_distinct
     drill_fields: []
+    sql:${TABLE}.request_code  ;;
   }
 
   measure: count_products {
