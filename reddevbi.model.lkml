@@ -215,20 +215,22 @@ explore: dim_hcp {
   join: dim_hcp_speciality {
     view_label: "HCP Speciality"
     relationship: many_to_one
+    type: inner
     sql_on: ${dim_hcp.hcp_speciality_id} = ${dim_hcp_speciality.hcp_speciality_id} ;;
   }
 
   join: dim_hcp_address {
     view_label: "HCP Address"
     relationship: many_to_one
+    type: inner
     sql_on: ${dim_hcp.hcp_id} = ${dim_hcp_address.hcp_id} ;;
   }
 
   join: dim_hcp_license {
     view_label: "HCP License"
     relationship: many_to_one
-    sql_on: ${dim_hcp.hcp_id} = ${dim_hcp_license.hcp_license_id} ;;
     type: inner
+    sql_on: ${dim_hcp.hcp_id} = ${dim_hcp_license.hcp_license_id} ;;
   }
 
 }
