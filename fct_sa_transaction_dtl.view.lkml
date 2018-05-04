@@ -1,5 +1,5 @@
 view: fct_sa_transaction_dtl {
-  sql_table_name: qpharma_bi.fct_sa_transaction_dtl ;;
+  sql_table_name: demo_bi.fct_sa_transaction_dtl ;;
 
   dimension: cache_tb_sa_trans_dtl_1_row_id_ref {
     type: string

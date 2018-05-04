@@ -1,5 +1,5 @@
 view: dim_product_family {
-  sql_table_name: qpharma_bi.dim_product_family ;;
+  sql_table_name: demo_bi.dim_product_family ;;
 
   dimension: product_family_id {
     type: number

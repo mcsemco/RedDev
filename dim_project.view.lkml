@@ -1,5 +1,5 @@
 view: dim_project {
-  sql_table_name: qpharma_bi.dim_project ;;
+  sql_table_name: demo_bi.dim_project ;;
 
   dimension: project_code {
     type: string

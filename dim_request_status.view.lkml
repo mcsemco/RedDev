@@ -1,5 +1,5 @@
 view: dim_request_status {
-  sql_table_name: qpharma_bi.dim_request_status ;;
+  sql_table_name: demo_bi.dim_request_status ;;
 
   dimension: request_status_code {
     type: number

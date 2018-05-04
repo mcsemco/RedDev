@@ -1,5 +1,5 @@
 view: dim_hcp {
-  sql_table_name: qpharma_bi.dim_hcp ;;
+  sql_table_name: demo_bi.dim_hcp ;;
 
   dimension: hcp_first_name {
     type: string

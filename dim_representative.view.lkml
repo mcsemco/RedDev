@@ -1,5 +1,5 @@
 view: dim_representative {
-  sql_table_name: qpharma_bi.dim_representative ;;
+  sql_table_name: demo_bi.dim_representative ;;
 
   dimension: representative_code {
     type: string

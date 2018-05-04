@@ -1,5 +1,5 @@
 view: dim_source {
-  sql_table_name: qpharma_bi.dim_source ;;
+  sql_table_name: demo_bi.dim_source ;;
 
   dimension: source_code {
     type: number

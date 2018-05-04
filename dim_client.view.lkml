@@ -1,5 +1,5 @@
 view: dim_client {
-  sql_table_name: qpharma_bi.dim_client ;;
+  sql_table_name: demo_bi.dim_client ;;
 
   dimension: client_code {
     type: string

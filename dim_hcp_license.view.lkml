@@ -1,5 +1,5 @@
 view: dim_hcp_license {
-  sql_table_name: qpharma_bi.dim_hcp_license ;;
+  sql_table_name: demo_bi.dim_hcp_license ;;
 
   dimension: hcp_id {
     type: number

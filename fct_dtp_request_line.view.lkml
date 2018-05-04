@@ -1,5 +1,5 @@
 view: fct_dtp_request_line {
-  sql_table_name: qpharma_bi.fct_dtp_request_line ;;
+  sql_table_name: demo_bi.fct_dtp_request_line ;;
 
   dimension: cache_tb_dtp_req_line_1_row_id_ref {
     type: string
