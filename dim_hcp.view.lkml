@@ -29,6 +29,11 @@ view: dim_hcp {
       url: "/dashboards/81?HCP%20Full%20Name={{ value }}"
       icon_url: "https://www.google.com/s2/favicons?domain=www.looker.com"
     }
+    link: {
+      label: "RedirectTest Page "
+      url: "http://10.10.2.34:8084/Home/RedirectTest"
+      icon_url: "https://www.google.com/s2/favicons?domain=www.looker.com"
+    }
   }
 
   dimension: hcp_speciality_id {
