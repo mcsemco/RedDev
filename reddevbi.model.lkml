@@ -230,12 +230,30 @@ explore: dim_hcp {
     view_label: "HCP License"
     relationship: many_to_one
     type: inner
-    sql_on: ${dim_hcp.hcp_id} = ${dim_hcp_license.hcp_license_id} ;;
+    sql_on: ${dim_hcp.hcp_id} = ${dim_hcp_license.hcp_id} ;;
   }
 
 }
+#########  Product  ############
+explore: dim_product {
+  label: "Product"
+  view_name: dim_product
 
+  join: dim_product_family {
+    view_label: "Product Family"
+    relationship: many_to_one
+    type: inner
+    sql_on: ${dim_product.product_family_id} = ${dim_product_family.product_family_id} ;;
+  }
 
+  join: dim_product_type {
+    view_label: "Product Type"
+    relationship: many_to_one
+    type: inner
+    sql_on: ${dim_product_type.product_type_id} = ${dim_product_type.product_type_id} ;;
+  }
+
+}
 
 explore: dim_client {}
 
@@ -243,7 +261,7 @@ explore: dim_hcp_license {}
 
 explore: dim_hcp_speciality {}
 
-explore: dim_product {}
+
 
 explore: dim_product_family {}
 
