@@ -223,7 +223,6 @@
     query_timezone: America/Los_Angeles
     stacking: ''
     show_value_labels: false
-    title_color: "#ffaa90"
     label_density: 25
     legend_position: center
     x_axis_gridlines: false
@@ -260,6 +259,8 @@
       Client: dim_client.client_code
       Status: fct_sa_transaction.sa_transaction_status_code
       HCP Full Name: dim_hcp.hcp_full_name
+    embed_style:
+      title_color: "#ffaa90"
     row: 9
     col: 0
     width: 8
