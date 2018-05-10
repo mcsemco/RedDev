@@ -152,10 +152,18 @@ view: fct_dtp_request_line {
     drill_fields: [client_id, hcp_address_id,hcp_id,source_id,representative_id,request_status_id,project_id,product_family_id,product_id]
     sql: ${TABLE}.product_id ;;
   }
+  measure: count_products_w_ordered_qty {
+    type: count_distinct
+    drill_fields: [client_id, hcp_address_id,hcp_id,source_id,representative_id,request_status_id,project_id,product_family_id,product_id]
+    sql: ${TABLE}.product_id ;;
+
+    html: Ordered Q-ty: {{ordered_qty._rendered_value}};;
+  }
 
   measure: ordered_qty {
     type: sum
     drill_fields: [client_id, hcp_address_id,hcp_id,source_id,representative_id,request_status_id,project_id,product_family_id,product_id]
+    value_format: "#,##0"
     sql: ${TABLE}.ordered_qty ;;
   }
 
