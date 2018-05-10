@@ -233,6 +233,7 @@ explore: dim_hcp {
     sql_on: ${dim_hcp.hcp_speciality_id} = ${dim_hcp_speciality.hcp_speciality_id} ;;
   }
 
+
   join: dim_hcp_address {
     view_label: "HCP Address"
     relationship: many_to_one
@@ -245,6 +246,12 @@ explore: dim_hcp {
     relationship: many_to_one
     type: inner
     sql_on: ${dim_hcp.hcp_id} = ${dim_hcp_license.hcp_id} ;;
+  }
+
+  join: dim_client {
+    view_label: "Dim Client"
+    relationship: one_to_many
+    sql_on: ${dim_client.client_id} = ${fct_dtp_request_line.client_id} or ${dim_client.client_id} = ${fct_sa_transaction_dtl.client_id} ;;
   }
 
   join: fct_dtp_request_line {
