@@ -19,6 +19,13 @@ explore: fct_sa_transaction {
   label: "Transaction Fact"
   view_name: fct_sa_transaction
 
+  join: fct_sa_transaction_dtl {
+    view_label: "Transaction Detail Fact"
+    type: left_outer
+    relationship: one_to_many
+    sql_on: ${fct_sa_transaction.sa_transaction_id} = ${fct_sa_transaction_dtl.sa_transaction_id} ;;
+  }
+
   join: dim_client {
     view_label: "Client"
     type: left_outer
@@ -83,6 +90,13 @@ explore: fct_sa_transaction {
 explore: fct_sa_transaction_dtl {
   label: "Transaction Detail Fact"
   view_name: fct_sa_transaction_dtl
+
+  join: fct_sa_transaction{
+    view_label: "Transaction Fact"
+    type: left_outer
+    relationship: one_to_many
+    sql_on: ${fct_sa_transaction_dtl.sa_transaction_id} = ${fct_sa_transaction.sa_transaction_id} ;;
+  }
 
   join: dim_client {
     view_label: "Client"
