@@ -247,6 +247,23 @@ explore: dim_hcp {
     sql_on: ${dim_hcp.hcp_id} = ${dim_hcp_license.hcp_id} ;;
   }
 
+  join: fct_dtp_request_line {
+    view_label: "Request Line Fact"
+    relationship: one_to_many
+    sql_on: ${dim_hcp.hcp_id} = ${fct_dtp_request_line.hcp_id} ;;
+  }
+
+  join: fct_sa_transaction {
+    view_label: "Transaction Fact"
+    relationship: one_to_many
+    sql_on: ${dim_hcp.hcp_id} = ${fct_sa_transaction.hcp_id} ;;
+  }
+
+  join: fct_sa_transaction_dtl {
+    view_label: "Transaction Detail Fact"
+    relationship: one_to_many
+    sql_on: ${dim_hcp.hcp_id} = ${fct_sa_transaction_dtl.hcp_id} ;;
+  }
 }
 #########  Product  ############
 explore: dim_product {
