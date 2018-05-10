@@ -259,8 +259,6 @@
       Client: dim_client.client_code
       Status: fct_sa_transaction.sa_transaction_status_code
       HCP Full Name: dim_hcp.hcp_full_name
-    embed_style:
-      title_color: "#ffaa90"
     row: 9
     col: 0
     width: 8
