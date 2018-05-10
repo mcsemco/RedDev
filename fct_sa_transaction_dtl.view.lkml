@@ -107,4 +107,9 @@ view: fct_sa_transaction_dtl {
     sql: ${TABLE}.sa_transaction_dtl_id ;;
   }
 
+  measure: sum_product_qty {
+    type: sum
+    sql: ${TABLE}.product_qty ;;
+  }
+
 }

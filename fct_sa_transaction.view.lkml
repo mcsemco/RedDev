@@ -97,5 +97,4 @@ view: fct_sa_transaction {
     sql: ${TABLE}.sa_transaction_id ;;
   }
 
-
 }

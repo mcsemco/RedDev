@@ -223,6 +223,7 @@
     query_timezone: America/Los_Angeles
     stacking: ''
     show_value_labels: false
+    title_color: "#ffaa90"
     label_density: 25
     legend_position: center
     x_axis_gridlines: false
