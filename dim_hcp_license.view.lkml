@@ -64,6 +64,7 @@ view: dim_hcp_license {
   }
 
   measure: count {
+    label: "Count of Licenses"
     type: count_distinct
     drill_fields: [hcp_license_code,hcp_license_expiration_month,hcp_license_expiration_date,hcp_license_status,hcp_license_state_code]
     sql: ${TABLE}.hcp_license_id ;;
