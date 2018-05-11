@@ -92,6 +92,7 @@ view: fct_sa_transaction {
   }
 
   measure: count_transactions {
+    label: "Count of SA Transactions"
     type: count_distinct
     drill_fields: [client_id, hcp_address_id,hcp_id,source_id,representative_id,sa_transaction_code,transaction_type_id,sa_transaction_date]
     sql: ${TABLE}.sa_transaction_id ;;

@@ -51,6 +51,11 @@ view: fct_sa_transaction_dtl {
     sql: ${TABLE}.representative_id ;;
   }
 
+  dimension: project_id {
+    type: number
+    sql: ${TABLE}.project_id ;;
+  }
+
   dimension: sa_transaction_code {
     type: string
     sql: ${TABLE}.sa_transaction_code ;;
@@ -103,13 +108,40 @@ view: fct_sa_transaction_dtl {
 
   measure: count_transactions_dtl {
     type: count_distinct
-    drill_fields: [client_id, hcp_address_id,hcp_id,source_id,representative_id,sa_transaction_code,transaction_type_id,sa_transaction_date]
+    drill_fields: [client_id, hcp_address_id,hcp_id,source_id,representative_id,project_id,sa_transaction_code,transaction_type_id,sa_transaction_date,product_family_id]
     sql: ${TABLE}.sa_transaction_dtl_id ;;
   }
 
+  measure: count_transactions {
+    label: "Count of SA Transactions"
+    type: count_distinct
+    drill_fields: [client_id, hcp_address_id,hcp_id,source_id,representative_id,project_id,sa_transaction_code,transaction_type_id,sa_transaction_date,product_family_id]
+    sql: ${TABLE}.sa_transaction_id ;;
+  }
+
+  measure: count_products {
+    type: count_distinct
+    drill_fields: [client_id, hcp_address_id,hcp_id,source_id,representative_id,project_id,sa_transaction_code,transaction_type_id,sa_transaction_date,product_family_id]
+    sql: ${TABLE}.product_id ;;
+  }
+
   measure: sum_product_qty {
+    label: "Ordered Q-ty"
     type: sum
+    value_format: "#,##0"
+    drill_fields: [client_id, hcp_address_id,hcp_id,source_id,representative_id,project_id,sa_transaction_code,transaction_type_id,sa_transaction_date,product_family_id]
     sql: ${TABLE}.product_qty ;;
   }
+
+  measure: count_products_w_ordered_qty {
+    type: count_distinct
+    drill_fields: [client_id, hcp_address_id,hcp_id,source_id,representative_id,project_id,sa_transaction_code,transaction_type_id,sa_transaction_date,product_family_id]
+    sql: ${TABLE}.product_id ;;
+
+    html: <span style="font-weight:normal;line-height:2.4;">Count of Products:</span> {{count_products._rendered_value}}
+          <br>
+          <span style="font-weight:normal">Ordered Q-ty:</span> {{sum_product_qty._rendered_value}} <br>  ;;
+  }
+
 
 }
