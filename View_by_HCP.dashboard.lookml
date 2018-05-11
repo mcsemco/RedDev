@@ -48,10 +48,7 @@
     - dim_hcp_license.hcp_license_month_to_exp_str
     - dim_hcp_license.hcp_license_expiration_date
     listen:
-      DTP Date Range: fct_dtp_request_line.request_date
-      Client: dim_client.client_code
       HCP Full Name: dim_hcp.hcp_full_name
-      SA Date Range: fct_sa_transaction_dtl.sa_transaction_date
     row: 0
     col: 0
     width: 5
@@ -93,7 +90,7 @@
     show_silhouette: false
     totals_color: "#808080"
     listen:
-      DTP Date Range: fct_dtp_request_line.ship_date
+      DTP Date Range: fct_dtp_request_line.request_date
       Client: dim_client.client_code
       HCP Full Name: dim_hcp.hcp_full_name
     row: 0
@@ -203,6 +200,106 @@
     col: 0
     width: 4
     height: 2
+  - name: Count of SA Transactions
+    title: Count of SA Transactions
+    model: reddevbi
+    explore: fct_sa_transaction
+    type: single_value
+    fields:
+    - fct_sa_transaction.count_transactions
+    limit: 500
+    query_timezone: America/Los_Angeles
+    custom_color_enabled: false
+    custom_color: forestgreen
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    stacking: ''
+    show_value_labels: false
+    label_density: 25
+    legend_position: center
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: true
+    limit_displayed_rows: false
+    y_axis_combined: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    series_types: {}
+    single_value_title: Count of SA Transactions
+    listen:
+      Client: dim_client.client_code
+      HCP Full Name: dim_hcp.hcp_full_name
+      SA Date Range: fct_sa_transaction.sa_transaction_date
+    row: 8
+    col: 0
+    width: 4
+    height: 2
+  - name: Ordered Quantity
+    title: Ordered Quantity
+    model: reddevbi
+    explore: fct_dtp_request_line
+    type: single_value
+    fields:
+    - fct_dtp_request_line.ordered_qty
+    query_timezone: America/Los_Angeles
+    custom_color_enabled: false
+    custom_color: forestgreen
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    stacking: ''
+    show_value_labels: false
+    label_density: 25
+    legend_position: center
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: true
+    limit_displayed_rows: false
+    y_axis_combined: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    series_types: {}
+    single_value_title: Ordered Quantity
+    listen:
+      DTP Date Range: fct_dtp_request_line.request_date
+      Client: dim_client.client_code
+      Status: dim_request_status.request_status_name
+      HCP Full Name: dim_hcp.hcp_full_name
+    row: 10
+    col: 0
+    width: 4
+    height: 2
   - name: Count of Products by Year-Month and Status
     title: Count of Products by Year-Month and Status
     model: reddevbi
@@ -265,106 +362,6 @@
     col: 4
     width: 18
     height: 6
-  - name: Ordered Quantity
-    title: Ordered Quantity
-    model: reddevbi
-    explore: fct_dtp_request_line
-    type: single_value
-    fields:
-    - fct_dtp_request_line.ordered_qty
-    query_timezone: America/Los_Angeles
-    custom_color_enabled: false
-    custom_color: forestgreen
-    show_single_value_title: true
-    show_comparison: false
-    comparison_type: value
-    comparison_reverse_colors: false
-    show_comparison_label: true
-    stacking: ''
-    show_value_labels: false
-    label_density: 25
-    legend_position: center
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: true
-    limit_displayed_rows: false
-    y_axis_combined: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    x_axis_scale: auto
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    series_types: {}
-    single_value_title: Ordered Quantity
-    listen:
-      DTP Date Range: fct_dtp_request_line.request_date
-      Client: dim_client.client_code
-      Status: dim_request_status.request_status_name
-      HCP Full Name: dim_hcp.hcp_full_name
-    row: 10
-    col: 0
-    width: 4
-    height: 2
-  - name: Count of SA Transactions
-    title: Count of SA Transactions
-    model: reddevbi
-    explore: fct_sa_transaction
-    type: single_value
-    fields:
-    - fct_sa_transaction.count_transactions
-    limit: 500
-    query_timezone: America/Los_Angeles
-    custom_color_enabled: false
-    custom_color: forestgreen
-    show_single_value_title: true
-    show_comparison: false
-    comparison_type: value
-    comparison_reverse_colors: false
-    show_comparison_label: true
-    stacking: ''
-    show_value_labels: false
-    label_density: 25
-    legend_position: center
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: true
-    limit_displayed_rows: false
-    y_axis_combined: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    x_axis_scale: auto
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    series_types: {}
-    single_value_title: Count of SA Transactions
-    listen:
-      Client: dim_client.client_code
-      HCP Full Name: dim_hcp.hcp_full_name
-      SA Date Range: fct_sa_transaction.sa_transaction_date
-    row: 8
-    col: 0
-    width: 4
-    height: 2
   - name: Count of DTP Transactions by Rep Full Name
     title: Count of DTP Transactions by Rep Full Name
     model: reddevbi
