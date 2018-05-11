@@ -51,147 +51,7 @@
     row: 0
     col: 0
     width: 3
-    height: 2
-  - name: Count of DTP Transactions by Projects
-    title: Count of DTP Transactions by Projects
-    model: reddevbi
-    explore: fct_dtp_request_line
-    type: looker_column
-    fields:
-    - dim_project.project_name
-    - fct_dtp_request_line.count
-    sorts:
-    - fct_dtp_request_line.count desc
-    limit: 500
-    query_timezone: America/Los_Angeles
-    stacking: ''
-    show_value_labels: false
-    label_density: 25
-    legend_position: center
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: true
-    limit_displayed_rows: false
-    y_axis_combined: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    x_axis_scale: auto
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    listen:
-      DTP Date Range: fct_dtp_request_line.request_date
-      DTP Status: dim_request_status.request_status_name
-      HCP Full Name: dim_hcp.hcp_full_name
-      Client: dim_client.client_code
-    row: 0
-    col: 3
-    width: 8
-    height: 6
-  - name: Count of DTP Transactions by Order Source
-    title: Count of DTP Transactions by Order Source
-    model: reddevbi
-    explore: fct_dtp_request_line
-    type: looker_column
-    fields:
-    - fct_dtp_request_line.count
-    - dim_source.source_name
-    sorts:
-    - dim_source.source_name
-    limit: 500
-    query_timezone: America/Los_Angeles
-    stacking: ''
-    show_value_labels: false
-    label_density: 25
-    legend_position: center
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: true
-    limit_displayed_rows: false
-    y_axis_combined: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    x_axis_scale: auto
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    listen:
-      DTP Date Range: fct_dtp_request_line.request_date
-      DTP Status: dim_request_status.request_status_name
-      HCP Full Name: dim_hcp.hcp_full_name
-      Client: dim_client.client_code
-    row: 0
-    col: 11
-    width: 7
-    height: 6
-  - name: Count of DTP Transactions by HCP State
-    title: Count of DTP Transactions by HCP State
-    model: reddevbi
-    explore: dim_hcp
-    type: looker_column
-    fields:
-    - dim_hcp_address.hcp_state_code
-    - fct_dtp_request_line.count
-    sorts:
-    - dim_hcp_address.hcp_state_code
-    limit: 500
-    query_timezone: America/Los_Angeles
-    stacking: ''
-    show_value_labels: false
-    label_density: 25
-    legend_position: center
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: false
-    limit_displayed_rows: false
-    y_axis_combined: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    x_axis_scale: auto
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    series_types: {}
-    show_dropoff: false
-    limit_displayed_rows_values:
-      show_hide: hide
-      first_last: first
-      num_rows: 0
-    listen:
-      DTP Date Range: fct_dtp_request_line.request_date
-      HCP Full Name: dim_hcp.hcp_full_name
-      Client: dim_client.client_code
-    row: 6
-    col: 0
-    width: 18
-    height: 5
+    height: 3
   - name: Ordered Quantity
     title: Ordered Quantity
     model: reddevbi
@@ -238,10 +98,10 @@
       DTP Status: dim_request_status.request_status_name
       HCP Full Name: dim_hcp.hcp_full_name
       Client: dim_client.client_code
-    row: 2
+    row: 3
     col: 0
     width: 3
-    height: 2
+    height: 3
   - name: DTP Transactions List
     title: DTP Transactions List
     model: reddevbi
@@ -259,7 +119,7 @@
     sorts:
     - fct_dtp_request_line.request_date desc
     query_timezone: America/Los_Angeles
-    show_view_names: true
+    show_view_names: false
     show_row_numbers: true
     truncate_column_names: false
     hide_totals: false
@@ -280,6 +140,111 @@
     col: 0
     width: 18
     height: 5
+  - name: Count of DTP Transactions by Order Source
+    title: Count of DTP Transactions by Order Source
+    model: reddevbi
+    explore: fct_dtp_request_line
+    type: looker_column
+    fields:
+    - fct_dtp_request_line.count
+    - dim_source.source_name
+    sorts:
+    - dim_source.source_name
+    limit: 500
+    query_timezone: America/Los_Angeles
+    stacking: ''
+    show_value_labels: true
+    label_density: 25
+    legend_position: center
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    limit_displayed_rows: false
+    y_axis_combined: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    listen:
+      DTP Date Range: fct_dtp_request_line.request_date
+      DTP Status: dim_request_status.request_status_name
+      HCP Full Name: dim_hcp.hcp_full_name
+      Client: dim_client.client_code
+    row: 0
+    col: 11
+    width: 7
+    height: 6
+  - name: Count of Products and Ordered Quantity by Year-Month and Status
+    title: Count of Products and Ordered Quantity by Year-Month and Status
+    model: reddevbi
+    explore: fct_dtp_request_line
+    type: looker_column
+    fields:
+    - fct_dtp_request_line.request_month
+    - dim_request_status.request_status_name
+    - fct_dtp_request_line.count_products_w_ordered_qty
+    pivots:
+    - dim_request_status.request_status_name
+    sorts:
+    - fct_dtp_request_line.request_month
+    - dim_request_status.request_status_name
+    query_timezone: America/Los_Angeles
+    stacking: ''
+    show_value_labels: true
+    label_density: 25
+    legend_position: center
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    limit_displayed_rows: false
+    y_axis_combined: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    show_row_numbers: true
+    truncate_column_names: false
+    hide_totals: false
+    hide_row_totals: false
+    table_theme: editable
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    series_types: {}
+    x_axis_datetime_label: "%Y-%m"
+    label_rotation:
+    font_size: ''
+    listen:
+      DTP Date Range: fct_dtp_request_line.request_date
+      DTP Status: dim_request_status.request_status_name
+      HCP Full Name: dim_hcp.hcp_full_name
+      Client: dim_client.client_code
+    row: 11
+    col: 0
+    width: 9
+    height: 8
   - name: Ordered Quantity by Year-Month and Status
     title: Ordered Quantity by Year-Month and Status
     model: reddevbi
@@ -291,8 +256,6 @@
     - fct_dtp_request_line.request_month
     pivots:
     - dim_request_status.request_status_name
-    fill_fields:
-    - fct_dtp_request_line.request_month
     sorts:
     - fct_dtp_request_line.request_month
     - dim_request_status.request_status_name 0
@@ -331,8 +294,61 @@
     conditional_formatting_include_nulls: false
     series_types: {}
     x_axis_datetime_label: "%Y-%m"
-    font_size: 6px
-    label_rotation: 0
+    font_size: ''
+    label_rotation:
+    limit_displayed_rows_values:
+      show_hide: hide
+      first_last: first
+      num_rows: 0
+    y_axes:
+    - label: ''
+      maxValue:
+      minValue:
+      orientation: left
+      showLabels: true
+      showValues: true
+      tickDensity: default
+      tickDensityCustom: 5
+      type: linear
+      unpinAxis: false
+      valueFormat:
+      series:
+      - id: BR Violations
+        name: BR Violations
+        axisId: fct_dtp_request_line.ordered_qty
+      - id: Complete
+        name: Complete
+        axisId: fct_dtp_request_line.ordered_qty
+      - id: Complete with Variance
+        name: Complete with Variance
+        axisId: fct_dtp_request_line.ordered_qty
+      - id: Delivered
+        name: Delivered
+        axisId: fct_dtp_request_line.ordered_qty
+      - id: Forgiven
+        name: Forgiven
+        axisId: fct_dtp_request_line.ordered_qty
+      - id: In Progress
+        name: In Progress
+        axisId: fct_dtp_request_line.ordered_qty
+      - id: Partial AOC
+        name: Partial AOC
+        axisId: fct_dtp_request_line.ordered_qty
+      - id: Rejected
+        name: Rejected
+        axisId: fct_dtp_request_line.ordered_qty
+      - id: Returned
+        name: Returned
+        axisId: fct_dtp_request_line.ordered_qty
+      - id: Shipped (In Transit)
+        name: Shipped (In Transit)
+        axisId: fct_dtp_request_line.ordered_qty
+      - id: Variance
+        name: Variance
+        axisId: fct_dtp_request_line.ordered_qty
+      - id: Waiting for Approval
+        name: Waiting for Approval
+        axisId: fct_dtp_request_line.ordered_qty
     listen:
       DTP Date Range: fct_dtp_request_line.request_date
       DTP Status: dim_request_status.request_status_name
@@ -342,22 +358,17 @@
     col: 9
     width: 9
     height: 8
-  - name: Count of Products and Ordered Quantity by Year-Month and Status
-    title: Count of Products and Ordered Quantity by Year-Month and Status
+  - name: Count of DTP Transactions by Projects
+    title: Count of DTP Transactions by Projects
     model: reddevbi
     explore: fct_dtp_request_line
     type: looker_column
     fields:
-    - fct_dtp_request_line.request_month
-    - dim_request_status.request_status_name
-    - fct_dtp_request_line.count_products_w_ordered_qty
-    pivots:
-    - dim_request_status.request_status_name
-    fill_fields:
-    - fct_dtp_request_line.request_month
+    - dim_project.project_name
+    - fct_dtp_request_line.count
     sorts:
-    - fct_dtp_request_line.request_month
-    - dim_request_status.request_status_name
+    - fct_dtp_request_line.count desc
+    limit: 500
     query_timezone: America/Los_Angeles
     stacking: ''
     show_value_labels: true
@@ -383,27 +394,65 @@
     show_totals_labels: false
     show_silhouette: false
     totals_color: "#808080"
-    show_row_numbers: true
-    truncate_column_names: false
-    hide_totals: false
-    hide_row_totals: false
-    table_theme: editable
-    enable_conditional_formatting: false
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    series_types: {}
-    x_axis_datetime_label: "%Y-%m"
-    label_rotation: 0
-    font_size: 6px
     listen:
       DTP Date Range: fct_dtp_request_line.request_date
       DTP Status: dim_request_status.request_status_name
       HCP Full Name: dim_hcp.hcp_full_name
       Client: dim_client.client_code
-    row: 11
+    row: 0
+    col: 3
+    width: 8
+    height: 6
+  - name: Count of DTP Transactions by HCP State
+    title: Count of DTP Transactions by HCP State
+    model: reddevbi
+    explore: dim_hcp
+    type: looker_column
+    fields:
+    - dim_hcp_address.hcp_state_code
+    - fct_dtp_request_line.count
+    sorts:
+    - dim_hcp_address.hcp_state_code
+    limit: 500
+    query_timezone: America/Los_Angeles
+    stacking: ''
+    show_value_labels: true
+    label_density: 25
+    legend_position: center
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    limit_displayed_rows: false
+    y_axis_combined: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    series_types: {}
+    show_dropoff: false
+    limit_displayed_rows_values:
+      show_hide: hide
+      first_last: first
+      num_rows: 0
+    listen:
+      DTP Date Range: fct_dtp_request_line.request_date
+      HCP Full Name: dim_hcp.hcp_full_name
+      Client: dim_client.client_code
+    row: 6
     col: 0
-    width: 9
-    height: 8
+    width: 18
+    height: 5
   filters:
   - name: DTP Date Range
     title: DTP Date Range

@@ -66,12 +66,12 @@
     limit: 500
     query_timezone: America/Los_Angeles
     stacking: ''
-    show_value_labels: false
+    show_value_labels: true
     label_density: 25
     legend_position: center
     x_axis_gridlines: false
     y_axis_gridlines: true
-    show_view_names: true
+    show_view_names: false
     limit_displayed_rows: false
     y_axis_combined: true
     show_y_axis_labels: true
@@ -110,7 +110,7 @@
     limit: 500
     query_timezone: America/Los_Angeles
     stacking: ''
-    show_value_labels: false
+    show_value_labels: true
     label_density: 25
     legend_position: center
     x_axis_gridlines: false
@@ -142,6 +142,8 @@
     conditional_formatting_include_totals: false
     conditional_formatting_include_nulls: false
     series_types: {}
+    font_size: ''
+    label_rotation: 0
     listen:
       Client: dim_client.client_code
       HCP Full Name: dim_hcp.hcp_full_name
@@ -198,31 +200,31 @@
       HCP Full Name: dim_hcp.hcp_full_name
     row: 6
     col: 0
-    width: 4
+    width: 5
     height: 2
-  - name: Count of SA Transactions
-    title: Count of SA Transactions
+  - name: Count of Products by Year-Month and Status
+    title: Count of Products by Year-Month and Status
     model: reddevbi
-    explore: fct_sa_transaction
-    type: single_value
+    explore: fct_dtp_request_line
+    type: looker_column
     fields:
-    - fct_sa_transaction.count_transactions
+    - fct_dtp_request_line.count_products
+    - fct_dtp_request_line.request_month
+    - dim_request_status.request_status_name
+    pivots:
+    - dim_request_status.request_status_name
+    sorts:
+    - fct_dtp_request_line.request_month
+    - dim_request_status.request_status_name 0
     limit: 500
     query_timezone: America/Los_Angeles
-    custom_color_enabled: false
-    custom_color: forestgreen
-    show_single_value_title: true
-    show_comparison: false
-    comparison_type: value
-    comparison_reverse_colors: false
-    show_comparison_label: true
     stacking: ''
-    show_value_labels: false
+    show_value_labels: true
     label_density: 25
     legend_position: center
     x_axis_gridlines: false
     y_axis_gridlines: true
-    show_view_names: true
+    show_view_names: false
     limit_displayed_rows: false
     y_axis_combined: true
     show_y_axis_labels: true
@@ -240,16 +242,26 @@
     show_totals_labels: false
     show_silhouette: false
     totals_color: "#808080"
+    show_row_numbers: true
+    truncate_column_names: false
+    hide_totals: false
+    hide_row_totals: false
+    table_theme: editable
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
     series_types: {}
-    single_value_title: Count of SA Transactions
+    font_size: ''
+    label_rotation:
     listen:
+      DTP Date Range: fct_dtp_request_line.request_date
       Client: dim_client.client_code
+      Status: dim_request_status.request_status_name
       HCP Full Name: dim_hcp.hcp_full_name
-      SA Date Range: fct_sa_transaction.sa_transaction_date
-    row: 8
-    col: 0
-    width: 4
-    height: 2
+    row: 6
+    col: 5
+    width: 17
+    height: 6
   - name: Ordered Quantity
     title: Ordered Quantity
     model: reddevbi
@@ -298,70 +310,8 @@
       HCP Full Name: dim_hcp.hcp_full_name
     row: 10
     col: 0
-    width: 4
+    width: 5
     height: 2
-  - name: Count of Products by Year-Month and Status
-    title: Count of Products by Year-Month and Status
-    model: reddevbi
-    explore: fct_dtp_request_line
-    type: looker_column
-    fields:
-    - fct_dtp_request_line.count_products
-    - fct_dtp_request_line.request_month
-    - dim_request_status.request_status_name
-    pivots:
-    - dim_request_status.request_status_name
-    fill_fields:
-    - fct_dtp_request_line.request_month
-    sorts:
-    - fct_dtp_request_line.request_month
-    - dim_request_status.request_status_name 0
-    limit: 500
-    query_timezone: America/Los_Angeles
-    stacking: ''
-    show_value_labels: true
-    label_density: 25
-    legend_position: center
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: false
-    limit_displayed_rows: false
-    y_axis_combined: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    x_axis_scale: auto
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    show_row_numbers: true
-    truncate_column_names: false
-    hide_totals: false
-    hide_row_totals: false
-    table_theme: editable
-    enable_conditional_formatting: false
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    series_types: {}
-    font_size: 6px
-    label_rotation: 0
-    listen:
-      DTP Date Range: fct_dtp_request_line.request_date
-      Client: dim_client.client_code
-      Status: dim_request_status.request_status_name
-      HCP Full Name: dim_hcp.hcp_full_name
-    row: 6
-    col: 4
-    width: 18
-    height: 6
   - name: Count of DTP Transactions by Rep Full Name
     title: Count of DTP Transactions by Rep Full Name
     model: reddevbi
@@ -410,6 +360,56 @@
     col: 0
     width: 22
     height: 6
+  - name: Count of SA Transactions
+    title: Count of SA Transactions
+    model: reddevbi
+    explore: fct_sa_transaction
+    type: single_value
+    fields:
+    - fct_sa_transaction.count_transactions
+    limit: 500
+    query_timezone: America/Los_Angeles
+    custom_color_enabled: false
+    custom_color: forestgreen
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    stacking: ''
+    show_value_labels: false
+    label_density: 25
+    legend_position: center
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: true
+    limit_displayed_rows: false
+    y_axis_combined: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    series_types: {}
+    single_value_title: Count of SA Transactions
+    listen:
+      Client: dim_client.client_code
+      HCP Full Name: dim_hcp.hcp_full_name
+      SA Date Range: fct_sa_transaction.sa_transaction_date
+    row: 8
+    col: 0
+    width: 5
+    height: 2
   - name: DTP Transactions List
     title: DTP Transactions List
     model: reddevbi
@@ -427,7 +427,7 @@
     sorts:
     - fct_dtp_request_line.request_date desc
     query_timezone: America/Los_Angeles
-    show_view_names: true
+    show_view_names: false
     show_row_numbers: true
     truncate_column_names: false
     hide_totals: false
