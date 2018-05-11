@@ -349,6 +349,8 @@
     enable_conditional_formatting: false
     conditional_formatting_include_totals: false
     conditional_formatting_include_nulls: false
+    hidden_fields:
+    - dim_client.client_code
     listen:
       SA Date Range: fct_sa_transaction_dtl.sa_transaction_date
       HCP Full Name: dim_hcp.hcp_full_name

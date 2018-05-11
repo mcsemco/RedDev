@@ -151,62 +151,6 @@
     col: 10
     width: 7
     height: 6
-  - name: Map US Count of SA Transactions
-    title: Map US Count of SA Transactions
-    model: reddevbi
-    explore: fct_sa_transaction
-    type: looker_geo_choropleth
-    fields:
-    - fct_sa_transaction.count_transactions
-    - dim_hcp_address.hcp_state_map
-    sorts:
-    - fct_sa_transaction.count_transactions desc
-    query_timezone: America/Los_Angeles
-    map: usa
-    map_projection: ''
-    show_view_names: true
-    quantize_colors: false
-    stacking: ''
-    show_value_labels: false
-    label_density: 25
-    legend_position: center
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    limit_displayed_rows: false
-    y_axis_combined: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    x_axis_scale: auto
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    show_row_numbers: true
-    truncate_column_names: false
-    hide_totals: false
-    hide_row_totals: false
-    table_theme: editable
-    enable_conditional_formatting: false
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    series_types: {}
-    listen:
-      SA Date Range: fct_sa_transaction_dtl.sa_transaction_date
-      DTP Status: fct_sa_transaction.sa_transaction_status_code
-      HCP Full Name: dim_hcp.hcp_full_name
-      Client: dim_client.client_code
-    row: 0
-    col: 17
-    width: 7
-    height: 18
   - name: Ordered Quantity
     title: Ordered Quantity
     model: reddevbi
@@ -479,6 +423,64 @@
     col: 8
     width: 9
     height: 6
+  - name: Map US Count of SA Transactions
+    title: Map US Count of SA Transactions
+    model: reddevbi
+    explore: fct_sa_transaction
+    type: looker_geo_choropleth
+    fields:
+    - fct_sa_transaction.count_transactions
+    - dim_hcp_address.hcp_state_map
+    sorts:
+    - fct_sa_transaction.count_transactions desc
+    query_timezone: America/Los_Angeles
+    map: usa
+    map_projection: ''
+    show_view_names: false
+    quantize_colors: false
+    stacking: ''
+    show_value_labels: false
+    label_density: 25
+    legend_position: center
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    limit_displayed_rows: false
+    y_axis_combined: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    show_row_numbers: true
+    truncate_column_names: false
+    hide_totals: false
+    hide_row_totals: false
+    table_theme: editable
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    series_types: {}
+    colors: []
+    empty_color: ''
+    listen:
+      SA Date Range: fct_sa_transaction_dtl.sa_transaction_date
+      DTP Status: fct_sa_transaction.sa_transaction_status_code
+      HCP Full Name: dim_hcp.hcp_full_name
+      Client: dim_client.client_code
+    row: 0
+    col: 17
+    width: 7
+    height: 12
   filters:
   - name: DTP Date Range
     title: DTP Date Range

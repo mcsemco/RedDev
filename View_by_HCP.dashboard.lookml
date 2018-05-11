@@ -1,5 +1,5 @@
 - dashboard: view_by_hcp
-  title: VIew  by HCP
+  title: VIew by HCP
   layout: newspaper
   elements:
   - name: HCP Information
@@ -413,40 +413,6 @@
     col: 0
     width: 22
     height: 6
-  - name: SA Transactions List
-    title: SA Transactions List
-    model: reddevbi
-    explore: fct_sa_transaction_dtl
-    type: table
-    fields:
-    - dim_client.client_code
-    - dim_hcp.hcp_full_name
-    - dim_representative.representative_full_name
-    - dim_product.product_desc
-    - fct_sa_transaction_dtl.sa_transaction_date
-    - fct_sa_transaction_dtl.sum_product_qty
-    sorts:
-    - fct_sa_transaction_dtl.sa_transaction_date desc
-    limit: 500
-    query_timezone: America/Los_Angeles
-    show_view_names: false
-    show_row_numbers: true
-    truncate_column_names: false
-    hide_totals: false
-    hide_row_totals: false
-    table_theme: editable
-    limit_displayed_rows: false
-    enable_conditional_formatting: false
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    listen:
-      Client: dim_client.client_code
-      HCP Full Name: dim_hcp.hcp_full_name
-      SA Date Range: fct_sa_transaction_dtl.sa_transaction_date
-    row: 24
-    col: 0
-    width: 22
-    height: 5
   - name: DTP Transactions List
     title: DTP Transactions List
     model: reddevbi
@@ -485,6 +451,42 @@
     col: 0
     width: 22
     height: 6
+  - name: SA Transactions List
+    title: SA Transactions List
+    model: reddevbi
+    explore: fct_sa_transaction_dtl
+    type: table
+    fields:
+    - dim_client.client_code
+    - dim_hcp.hcp_full_name
+    - dim_representative.representative_full_name
+    - dim_product.product_desc
+    - fct_sa_transaction_dtl.sa_transaction_date
+    - fct_sa_transaction_dtl.sum_product_qty
+    sorts:
+    - fct_sa_transaction_dtl.sa_transaction_date desc
+    limit: 500
+    query_timezone: America/Los_Angeles
+    show_view_names: false
+    show_row_numbers: true
+    truncate_column_names: false
+    hide_totals: false
+    hide_row_totals: false
+    table_theme: editable
+    limit_displayed_rows: false
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    hidden_fields:
+    - dim_client.client_code
+    listen:
+      Client: dim_client.client_code
+      HCP Full Name: dim_hcp.hcp_full_name
+      SA Date Range: fct_sa_transaction_dtl.sa_transaction_date
+    row: 24
+    col: 0
+    width: 22
+    height: 5
   filters:
   - name: DTP Date Range
     title: DTP Date Range
