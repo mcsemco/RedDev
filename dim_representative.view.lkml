@@ -29,6 +29,11 @@ view: dim_representative {
   dimension: representative_full_name {
     type: string
     sql:  ${TABLE}.representative_first_name || ' ' || ${TABLE}.representative_last_name ;;
+    link: {
+      label: "View by Rep"
+      url: "/dashboards/reddevbi::view_by_rep?Rep%20Full%20Name={{ value }}"
+      icon_url: "https://www.google.com/s2/favicons?domain=www.looker.com"
+    }
   }
 
   measure: count {

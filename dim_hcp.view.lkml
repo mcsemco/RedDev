@@ -26,7 +26,7 @@ view: dim_hcp {
     sql:  ${TABLE}.hcp_first_name || ' ' || ${TABLE}.hcp_last_name ;;
     link: {
       label: "View by HCP"
-      url: "/dashboards/reddevbi::hcp_view_rd?HCP%20Full%20Name={{ value }}"
+      url: "/dashboards/reddevbi::view_by_hcp?HCP%20Full%20Name={{ value }}"
       icon_url: "https://www.google.com/s2/favicons?domain=www.looker.com"
     }
     link: {
