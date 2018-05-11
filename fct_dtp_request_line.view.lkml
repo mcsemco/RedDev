@@ -142,6 +142,7 @@ view: fct_dtp_request_line {
   }
 
   measure: count {
+    label: "Count of Transactions"
     type: count_distinct
     drill_fields: []
     sql:${TABLE}.dtp_request_line_id  ;;
