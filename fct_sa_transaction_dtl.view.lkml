@@ -120,6 +120,7 @@ view: fct_sa_transaction_dtl {
   }
 
   measure: count_products {
+    label: "Count of Products"
     type: count_distinct
     drill_fields: [client_id, hcp_address_id,hcp_id,source_id,representative_id,project_id,sa_transaction_code,transaction_type_id,sa_transaction_date,product_family_id]
     sql: ${TABLE}.product_id ;;
@@ -134,6 +135,7 @@ view: fct_sa_transaction_dtl {
   }
 
   measure: count_products_w_ordered_qty {
+    label: "Count of Products"
     type: count_distinct
     drill_fields: [client_id, hcp_address_id,hcp_id,source_id,representative_id,project_id,sa_transaction_code,transaction_type_id,sa_transaction_date,product_family_id]
     sql: ${TABLE}.product_id ;;

@@ -148,12 +148,14 @@ view: fct_dtp_request_line {
   }
 
   measure: count_products {
+    label: "Count of Products"
     type: count_distinct
     drill_fields: [client_id, hcp_address_id,hcp_id,source_id,representative_id,request_status_id,project_id,product_family_id,product_id]
     sql: ${TABLE}.product_id ;;
   }
 
   measure: ordered_qty {
+    label: "Ordered Q-ty"
     type: sum
     drill_fields: [client_id, hcp_address_id,hcp_id,source_id,representative_id,request_status_id,project_id,product_family_id,product_id]
     value_format: "#,##0"
@@ -161,6 +163,7 @@ view: fct_dtp_request_line {
   }
 
   measure: count_products_w_ordered_qty {
+    label: "Count of Products"
     type: count_distinct
     drill_fields: [client_id, hcp_address_id,hcp_id,source_id,representative_id,request_status_id,project_id,product_family_id,product_id]
     sql: ${TABLE}.product_id ;;
