@@ -176,7 +176,7 @@ explore: fct_dtp_request_line {
   join: dim_hcp_license {
     view_label: "HCP License"
     relationship: many_to_one
-    sql_on: ${fct_dtp_request_line.hcp_license_id}} = ${dim_hcp_license.hcp_license_id} ;;
+    sql_on: ${fct_dtp_request_line.hcp_license_id} = ${dim_hcp_license.hcp_license_id} ;;
   }
 
   join: dim_source {

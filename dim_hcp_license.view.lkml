@@ -69,6 +69,17 @@ view: dim_hcp_license {
     sql: datediff(day, getDate(), hcp_license_expiration_date) ;;
   }
 
+  dimension: hcp_license_days_to_expire_w_License_code {
+    label: "Days to License Expiration w LC"
+    type: number
+    sql: datediff(day, getDate(), hcp_license_expiration_date) ;;
+
+    html: <div style='text-align:left;font-size:60%;'>License Expiration Info</div>
+          <div style='text-align:left;font-weight:bold;font-size:85%;'>{{hcp_license_code}}</div>
+          <div style='text-align:left;font-size:45%;'>{{hcp_license_days_to_expire._rendered_value}}</div>  ;;
+  }
+
+
   dimension: hcp_license_days_to_exp_str {
     label: "Days to License Expiration Str"
     type: string
