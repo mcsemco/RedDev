@@ -63,6 +63,18 @@ view: dim_hcp_license {
     sql: datediff(month, getDate(), hcp_license_expiration_date) ;;
   }
 
+  dimension: hcp_license_days_to_expire {
+    label: "Days to License Expiration"
+    type: number
+    sql: datediff(day, getDate(), hcp_license_expiration_date) ;;
+  }
+
+  dimension: hcp_license_days_to_exp_str {
+    label: "Days to License Expiration Str"
+    type: string
+    sql: datediff(day, getDate(), hcp_license_expiration_date) ;;
+  }
+
   measure: count {
     label: "Count of Licenses"
     type: count_distinct
