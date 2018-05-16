@@ -172,32 +172,6 @@
     col: 17
     width: 7
     height: 7
-  - name: Map Count of Expired License by State
-    title: Map Count of Expired License by State
-    model: reddevbi
-    explore: dim_hcp
-    type: looker_geo_choropleth
-    fields:
-    - dim_hcp_license.hcp_license_state_code_map
-    - dim_hcp_license.count
-    sorts:
-    - dim_hcp_license.count desc
-    limit: 500
-    query_timezone: America/Los_Angeles
-    map: usa
-    map_projection: ''
-    show_view_names: true
-    quantize_colors: false
-    series_types: {}
-    listen:
-      Date Range: dim_hcp_license.hcp_license_expiration_date
-      HCP Full Name: dim_hcp.hcp_full_name
-      License Status: dim_hcp_license.hcp_license_status
-      License State: dim_hcp_license.hcp_license_state_code
-    row: 3
-    col: 8
-    width: 9
-    height: 11
   - name: HCP License Info
     title: HCP License Info
     model: reddevbi
@@ -305,6 +279,32 @@
     col: 17
     width: 7
     height: 7
+  - name: Map Count of Expired License by State
+    title: Map Count of Expired License by State
+    model: reddevbi
+    explore: dim_hcp
+    type: looker_geo_choropleth
+    fields:
+    - dim_hcp_license.hcp_license_state_code_map
+    - dim_hcp_license.count
+    sorts:
+    - dim_hcp_license.count desc
+    limit: 500
+    query_timezone: America/Los_Angeles
+    map: usa
+    map_projection: ''
+    show_view_names: true
+    quantize_colors: false
+    series_types: {}
+    listen:
+      Date Range: dim_hcp_license.hcp_license_expiration_date
+      HCP Full Name: dim_hcp.hcp_full_name
+      License Status: dim_hcp_license.hcp_license_status
+      License State: dim_hcp_license.hcp_license_state_code
+    row: 3
+    col: 8
+    width: 9
+    height: 11
   - name: HCP Address Information
     title: HCP Address Information
     model: reddevbi
@@ -387,13 +387,13 @@
   - name: Date Range
     title: Date Range
     type: date_filter
-    default_value: 2018/01/01 to 2018/05/11
+    default_value: 2018/01/01 to 2018/08/11
     allow_multiple_values: true
     required: false
   - name: HCP Full Name
     title: HCP Full Name
     type: field_filter
-    default_value: ''
+    default_value: QkpFn HtjLn
     allow_multiple_values: true
     required: false
     model: reddevbi
