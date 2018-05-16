@@ -2,6 +2,32 @@
   title: HCP License
   layout: newspaper
   elements:
+  - name: Map Count of Expired License by State
+    title: Map Count of Expired License by State
+    model: reddevbi
+    explore: dim_hcp
+    type: looker_geo_choropleth
+    fields:
+    - dim_hcp_license.hcp_license_state_code_map
+    - dim_hcp_license.count
+    sorts:
+    - dim_hcp_license.count desc
+    limit: 500
+    query_timezone: America/Los_Angeles
+    map: usa
+    map_projection: ''
+    show_view_names: true
+    quantize_colors: false
+    series_types: {}
+    listen:
+      Date Range: dim_hcp_license.hcp_license_expiration_date
+      HCP Full Name: dim_hcp.hcp_full_name
+      License State: dim_hcp_license.hcp_license_state_code
+      Speciality: dim_hcp_speciality.hcp_speciality_code
+    row: 0
+    col: 10
+    width: 11
+    height: 9
   - name: Count of Expired License by Year-Month
     title: Count of Expired License by Year-Month
     model: reddevbi
@@ -11,7 +37,8 @@
     - dim_hcp_license.count
     - dim_hcp_license.hcp_license_expiration_month
     sorts:
-    - dim_hcp_license.hcp_license_expiration_month
+    - dim_hcp_license.hcp_license_expiration_month desc
+    limit: 100
     query_timezone: America/Los_Angeles
     stacking: ''
     show_value_labels: true
@@ -42,6 +69,7 @@
     quantize_colors: false
     series_types: {}
     x_axis_datetime_label: "%Y-%m"
+    hidden_fields: []
     listen:
       Date Range: dim_hcp_license.hcp_license_expiration_date
       HCP Full Name: dim_hcp.hcp_full_name
@@ -50,32 +78,6 @@
     row: 0
     col: 0
     width: 10
-    height: 9
-  - name: Map Count of Expired License by State
-    title: Map Count of Expired License by State
-    model: reddevbi
-    explore: dim_hcp
-    type: looker_geo_choropleth
-    fields:
-    - dim_hcp_license.hcp_license_state_code_map
-    - dim_hcp_license.count
-    sorts:
-    - dim_hcp_license.count desc
-    limit: 500
-    query_timezone: America/Los_Angeles
-    map: usa
-    map_projection: ''
-    show_view_names: true
-    quantize_colors: false
-    series_types: {}
-    listen:
-      Date Range: dim_hcp_license.hcp_license_expiration_date
-      HCP Full Name: dim_hcp.hcp_full_name
-      License State: dim_hcp_license.hcp_license_state_code
-      Speciality: dim_hcp_speciality.hcp_speciality_code
-    row: 0
-    col: 10
-    width: 11
     height: 9
   - name: Count of Expired License  by State in Current Month
     title: Count of Expired License  by State in Current Month
@@ -88,8 +90,6 @@
     - dim_hcp_license.hcp_license_state_code
     pivots:
     - dim_hcp_license.hcp_license_state_code
-    fill_fields:
-    - dim_hcp_license.hcp_license_expiration_month
     sorts:
     - dim_hcp_license.hcp_license_expiration_month
     - dim_hcp_license.hcp_license_state_code 0
@@ -297,8 +297,8 @@
     col: 0
     width: 21
     height: 7
-  - name: Count of HCP Speciality by Speciality Code (Best 50)
-    title: Count of HCP Speciality by Speciality Code (Best 50)
+  - name: Count of HCP Licenses by Speciality Top 10
+    title: Count of HCP Licenses by Speciality Top 10
     model: reddevbi
     explore: dim_hcp
     type: looker_pie
@@ -307,10 +307,10 @@
     - dim_hcp_speciality.hcp_speciality_code
     sorts:
     - dim_hcp_license.count desc
-    limit: 50
+    limit: 10
     query_timezone: America/Los_Angeles
     value_labels: labels
-    label_type: labPer
+    label_type: labVal
     stacking: ''
     show_value_labels: false
     label_density: 25
@@ -406,7 +406,8 @@
     required: false
     model: reddevbi
     explore: dim_hcp_license
-    listens_to_filters: []
+    listens_to_filters:
+    - HCP Full Name
     field: dim_hcp_license.hcp_license_status
   - name: License State
     title: License State
@@ -416,7 +417,8 @@
     required: false
     model: reddevbi
     explore: dim_hcp_license
-    listens_to_filters: []
+    listens_to_filters:
+    - HCP Full Name
     field: dim_hcp_license.hcp_license_state_code
   - name: Speciality
     title: Speciality
@@ -426,5 +428,6 @@
     required: false
     model: reddevbi
     explore: dim_hcp_speciality
-    listens_to_filters: []
+    listens_to_filters:
+    - HCP Full Name
     field: dim_hcp_speciality.hcp_speciality_code
