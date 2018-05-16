@@ -1,4 +1,4 @@
-- dashboard: hcp_license_details
+- dashboard: hcp_license_by_details
   title: HCP License Details
   layout: newspaper
   elements:
